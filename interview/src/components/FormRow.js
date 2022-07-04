@@ -1,5 +1,7 @@
 import React from 'react';
 
+//Burada ki amacımız generic bir yapı oluşturup diğer sayfalarda kullanmak.
+
 const FormRow = ({ type, name, value, handleChange, labelText }) => {
   return (
     <div className="form-row">
