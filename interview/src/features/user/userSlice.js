@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
+import customFetch from '../../utils/axios';
 
 //Slice yapısı ile Action’lar otomatik olarak oluşturuluyor. Bir Slice nesnesi, Redux Store’unun bir parçasını (key/value kısmını) temsil eder.
 //Async istekleri yönetmek için standart yöntem createAsyncThunk’ı kullanmaktır.
@@ -12,7 +13,13 @@ const initialState = {
 export const registerUser = createAsyncThunk(
   'user/registerUser',
   async (user, thunkAPI) => {
-    console.log(`Register user: ${JSON.stringify(user)}`);
+    try {
+      const resp = await customFetch.post('/auth/testingRegister', user);
+      console.log(resp);
+    } catch (error) {
+      toast.error(error.response.data.msg);
+      console.log(error.response);
+    }
   }
 );
 
