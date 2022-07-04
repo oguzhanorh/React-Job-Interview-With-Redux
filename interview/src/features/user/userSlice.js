@@ -66,8 +66,10 @@ const userSlice = createSlice({
     },
     [loginUser.fulfilled]: (state, { payload }) => {
       const { user } = payload;
+
       state.isLoading = false;
       state.user = user;
+
       toast.success(`Welcome back ${user.name}`);
     },
     [loginUser.rejected]: (state, { payload }) => {
