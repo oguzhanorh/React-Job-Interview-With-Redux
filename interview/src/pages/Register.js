@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FormRow, Logo } from '../components';
 import Wrapper from '../assets/wrappers/LandingPage';
+import { toast } from 'react-toastify';
 
 const initialState = {
   name: '',
@@ -23,7 +24,7 @@ const Register = () => {
     const { name, email, password, isMember } = values;
     if (!email || !password || (!isMember && !name)) {
       //burada şu kontrolü sağlıyoruz eğer kullanıcı hangi pencerede ise orada ki alanlar için kontrol yaptırıyoruz.
-      console.log('please fill out all fields');
+      toast.warning('please fill out all fields'); //npm install --save react-toastify
     }
   };
 
