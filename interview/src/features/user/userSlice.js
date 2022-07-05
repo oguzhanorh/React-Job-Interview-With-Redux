@@ -12,6 +12,7 @@ import {
 
 const initialState = {
   isLoading: false,
+  isSidebarOpen: false,
   user: getUserFromLocalStorage,
 };
 
@@ -42,6 +43,11 @@ export const loginUser = createAsyncThunk(
 const userSlice = createSlice({
   name: 'user',
   initialState,
+  reducers: {
+    toggleSidebar: (state) => {
+      state.isSidebarOpen = !state.isSidebarOpen;
+    },
+  },
   extraReducers: {
     // pending - vaat henüz bir değer kazanmadı, geleceği hala belirsiz.
     // fulfilled - the promise successfully got a result value "assigned"
@@ -78,5 +84,5 @@ const userSlice = createSlice({
     },
   },
 });
-
+export const { toggleSidebar } = userSlice.actions;
 export default userSlice.reducer;
