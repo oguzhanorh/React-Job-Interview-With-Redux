@@ -48,7 +48,7 @@ const Register = () => {
     if (user) {
       setTimeout(() => {
         navigate('/');
-      }, 3000);
+      }, 20000);
     }
   }, [user]);
 
