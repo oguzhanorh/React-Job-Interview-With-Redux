@@ -24,9 +24,14 @@ const jobSlice = createSlice({
     handleChange: (state, { payload: { name, value } }) => {
       state[name] = value;
     },
+    clearValues: () => {
+      return {
+        ...initialState,
+      };
+    },
   },
 });
 
-export const { handleChange } = jobSlice.actions;
+export const { handleChange, clearValues } = jobSlice.actions;
 
 export default jobSlice.reducer;
