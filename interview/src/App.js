@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import {
   Profile,
-  Addjob,
+  AddJob,
   Alljobs,
   Stats,
   SharedLayout,
@@ -27,7 +27,7 @@ function App() {
         >
           <Route index element={<Stats />} />
           <Route path="all-jobs" element={<Alljobs />} />
-          <Route path="add-job" element={<Addjob />} />
+          <Route path="add-job" element={<AddJob />} />
           <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="landing" element={<Landing />} />

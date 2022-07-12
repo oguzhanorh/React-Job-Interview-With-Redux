@@ -19,7 +19,7 @@ const links = [
   {
     id: 3,
     text: 'add jobs',
-    path: 'add-jobs',
+    path: 'add-job',
     icon: <ImProfile />,
   },
   {
