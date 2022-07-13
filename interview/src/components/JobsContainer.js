@@ -4,9 +4,14 @@ import { Job } from './Job';
 import Wrapper from '../assets/wrappers/JobsContainer';
 import { useSelector, useDispatch } from 'react-redux';
 import Loading from './Loading';
+import { getAllJobs } from '../features/alljobs/allJobsSlice';
 export const JobsContainer = () => {
   const { jobs, isLoading } = useSelector((store) => store.alljobs);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllJobs());
+  }, []);
 
   if (isLoading) {
     return <Loading />;
@@ -19,6 +24,7 @@ export const JobsContainer = () => {
       </Wrapper>
     );
   }
+
   //kaç tane job bulursa onun bilgilerini aşağıda ki komut göstericek.
   return (
     <Wrapper>
