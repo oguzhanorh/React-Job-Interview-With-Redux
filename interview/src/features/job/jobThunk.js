@@ -2,14 +2,11 @@ import { showLoading, hideLoading, getAllJobs } from '../alljobs/allJobsSlice';
 import customFetch from '../../utils/axios';
 import { clearValues } from './jobSlice';
 import { logoutUser } from '../user/userSlice';
+import authHeader from '../../utils/authHeader';
 
 export const createJobThunk = async (job, thunkAPI) => {
   try {
-    const resp = await customFetch.post('/jobs', job, {
-      headers: {
-        authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-      },
-    });
+    const resp = await customFetch.post('/jobs', job, authHeader(thunkAPI));
     thunkAPI.dispatch(clearValues());
     return resp.data.msg;
   } catch (error) {
