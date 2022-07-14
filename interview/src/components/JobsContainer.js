@@ -7,14 +7,22 @@ import Loading from './Loading';
 import { getAllJobs } from '../features/alljobs/allJobsSlice';
 import { PageBtnContainer } from './PageBtnContainer';
 export const JobsContainer = () => {
-  const { jobs, isLoading, page, totalJobs, numOfPages } = useSelector(
-    (store) => store.alljobs
-  );
+  const {
+    jobs,
+    isLoading,
+    page,
+    totalJobs,
+    numOfPages,
+    search,
+    searchStatus,
+    searchType,
+    sort,
+  } = useSelector((store) => store.alljobs);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllJobs());
-  }, []);
+  }, [page, search, searchStatus, searchType, sort]);
 
   if (isLoading) {
     return <Loading />;
